@@ -1,23 +1,23 @@
 Installation
 ============
 
-**my-package** supports Python >= 3.8.
+**drawedumath** supports Python >= 3.8.
 
 ## Installing with `pip`
 
-**my-package** is available [on PyPI](https://pypi.org/project/my-package/). Just run
+**drawedumath** is available [on PyPI](https://pypi.org/project/drawedumath/). Just run
 
 ```bash
-pip install my-package
+pip install drawedumath
 ```
 
 ## Installing from source
 
-To install **my-package** from source, first clone [the repository](https://github.com/allenai/python-package-template):
+To install **drawedumath** from source, first clone [the repository](https://github.com/allenai/drawedumath):
 
 ```bash
-git clone https://github.com/allenai/python-package-template.git
-cd python-package-template
+git clone https://github.com/allenai/drawedumath.git
+cd drawedumath
 ```
 
 Then run

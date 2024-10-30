@@ -1,4 +1,4 @@
-# **my-package**
+# **drawedumath**
 
 ```{toctree}
 :maxdepth: 2
@@ -15,8 +15,8 @@ overview
 
 CHANGELOG
 CONTRIBUTING
-License <https://raw.githubusercontent.com/allenai/python-package-template/main/LICENSE>
-GitHub Repository <https://github.com/allenai/python-package-template>
+License <https://raw.githubusercontent.com/allenai/drawedumath/main/LICENSE>
+GitHub Repository <https://github.com/allenai/drawedumath>
 ```
 
 ## Indices and tables
