@@ -19,7 +19,9 @@ authors = [
 ]
 requires-python = ">=3.8"
 dependencies = [
-  # Add your own dependencies here
+  "numpy",
+  "matplotlib",
+  "pandas"
 ]
 license = {file = "LICENSE"}
 
