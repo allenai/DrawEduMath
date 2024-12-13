@@ -22,7 +22,10 @@ dependencies = [
   "numpy",
   "matplotlib",
   "pandas",
-  "python-dotenv"
+  "python-dotenv",
+  "openai",
+  "google-generativeai",
+  "anthropic"
 ]
 license = {file = "LICENSE"}
 
