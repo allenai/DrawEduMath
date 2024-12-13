@@ -21,7 +21,8 @@ requires-python = ">=3.8"
 dependencies = [
   "numpy",
   "matplotlib",
-  "pandas"
+  "pandas",
+  "python-dotenv"
 ]
 license = {file = "LICENSE"}
 
