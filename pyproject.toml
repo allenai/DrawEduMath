@@ -25,7 +25,8 @@ dependencies = [
   "python-dotenv",
   "openai",
   "google-generativeai",
-  "anthropic"
+  "anthropic",
+  "together"
 ]
 license = {file = "LICENSE"}
 
