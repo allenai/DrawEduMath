@@ -22,7 +22,7 @@ def create_comparison_radar_plot(categories, synthetic_values, teacher_values):
     angles += angles[:1]  # Complete the circle
 
     # Initialize the spider plot
-    fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(projection="polar"))
+    fig, ax = plt.subplots(figsize=(12, 12), subplot_kw=dict(projection="polar"))
 
     # Plot data
     synthetic_values_plot = np.concatenate((synthetic_values, [synthetic_values[0]]))
@@ -53,9 +53,33 @@ def create_comparison_radar_plot(categories, synthetic_values, teacher_values):
     )
     ax.fill(angles, teacher_values_plot, alpha=0.25, color=teacher_color)
 
-    # Draw axis lines for each angle and add labels
+    # Draw axis lines for each angle
     ax.set_xticks(angles[:-1])
-    ax.set_xticklabels(categories, size=14)  # Set category label size
+
+    # Remove default labels
+    ax.set_xticklabels([])
+
+    # Add custom labels outside the plot
+    for idx, (angle, label) in enumerate(zip(angles[:-1], categories)):
+        # Convert angle to degrees for text rotation
+        angle_deg = np.degrees(angle)
+
+        # Adjust label alignment and position based on angle
+        if angle_deg <= 90:
+            ha = "left"
+            va = "bottom"
+        elif angle_deg <= 180:
+            ha = "right"
+            va = "bottom"
+        elif angle_deg <= 270:
+            ha = "right"
+            va = "top"
+        else:
+            ha = "left"
+            va = "top"
+
+        # Position text at 33 (adjust this value to move labels further out or closer)
+        ax.text(angle, 33, label, ha=ha, va=va, size=14)
 
     # Add gridlines with custom size
     ax.set_rlabel_position(0)
@@ -64,8 +88,8 @@ def create_comparison_radar_plot(categories, synthetic_values, teacher_values):
         ["5", "10", "15", "20", "25", "30"],
         color="grey",
         size=14,
-    )  # Set grid label size
-    plt.ylim(0, 30)
+    )
+    plt.ylim(0, 32)  # Increased ylim to accommodate labels
 
     # Add legend with custom size
     plt.legend(bbox_to_anchor=(0.5, 1.08), loc="center", ncol=4, fontsize=18)
