@@ -503,15 +503,32 @@
       <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content">
           <h2 class="title is-3">Statistics</h2>
-          <img src="main_static/images/plots/question_type_statistics.png"
-            alt="Overall question types in our VQA benchmark" width="70%" />
-          <p>The most common question types in our <img src="main_static/images/logos/drawedumath_logo.png"
-              style="width:2.0em;vertical-align: middle" alt="Logo" />
-            <span class="drawedumath">DrawEduMath</span> benchmark, along with examples of questions
-            categorized within each type. <br />
-            The percentages shown are the proportion of questions across all images within each
-            QA-writing (Claude-generated, GPT-4o-generated, <br /> or teacher-written) workflow.
-          </p>
+          <div id="statistics-carousel" class="carousel statistics-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="main_static/images/plots/question_types_radar.png" alt="Question types in our VQA benchmark"
+                  width="45%" />
+                <p>The most common question types in our <img src="main_static/images/logos/drawedumath_logo.png"
+                    style="width:2.0em;vertical-align: middle" alt="Logo" />
+                  <span class="drawedumath">DrawEduMath</span> benchmark, along with examples of questions
+                  categorized within each type. <br />
+                  The percentages shown are the proportion of questions across all images within each
+                  QA-writing workflow (AI-generated or teacher-written).
+                </p>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="main_static/images/plots/question_type_statistics.png"
+                  alt="Overall question types in our VQA benchmark" width="70%" />
+                <p>Qualitative examples of the most common question types in our <img
+                    src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle"
+                    alt="Logo" />
+                  <span class="drawedumath">DrawEduMath</span> benchmark, categornized by type. <br />
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -531,18 +548,11 @@
       <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content">
           <h2 class="title is-3">Results on Existing Vision Language Models</h2>
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="box m-5">
-              <div class="content has-text-centered">
-                <img src="main_static/images/plots/vlm_performance_bar.png" alt="grade-lv" width="70%" />
-                <!-- <p>Write the label for bar chart results</p> -->
-              </div>
-            </div>
-            <div class="box m-5">
-              <div class="content has-text-centered">
-                <img src="main_static/images/plots/question_types_radar.png" alt="grade-lv" width="50%" />
-                <!-- <p>Write the label for the question radar chart</p> -->
-              </div>
+
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="main_static/images/plots/vlm_performance_bar.png" alt="grade-lv" width="70%" />
+              <!-- <p>Write the label for bar chart results</p> -->
             </div>
 
           </div>
