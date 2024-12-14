@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Evaluating mathematical reasoning of foundation models in visual contexts">
+  <meta name="description" content="Evaluating mathematical reasoning of foundation models in visual contexts">
   <meta name="keywords" content="DrawEduMath Draw Edu Math">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> DrawEduMath: Evaluating Vision Language Models with Expert-Annotated Students’
@@ -45,31 +45,32 @@
   <script src="./main_static/js/bulma-slider.min.js"></script>
   <script src="./main_static/js/explorer-index.js"></script>
 
-  <script src="./main_static/js/leaderboard_testmini.js"></script>  
+  <script src="./main_static/js/leaderboard_testmini.js"></script>
   <script src="./data/results/output_folders.js" defer></script>
   <script src="./data/results/model_scores.js" defer></script>
 
   <script src="./visualizer/data/data_public.js" defer></script>
 </head>
+
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <!-- <a class="navbar-item" href="https://keunhong.com">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <!-- <a class="navbar-item" href="https://keunhong.com">
       <span class="icon">
           <i class="fas fa-home"></i>
       </span>
       </a> -->
-      <!-- @PAN TODO: consider adding links? -->
-      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <!-- @PAN TODO: consider adding links? -->
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More Research
         </a>
@@ -103,22 +104,23 @@
           </a>
         </div>
       </div> -->
+      </div>
+
     </div>
-
-  </div>
-</nav>
+  </nav>
 
 
-<!-- Authors -->
-<section class="hero">
+  <!-- Authors -->
+  <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title is-bold" style="margin-bottom: 64px;">
-              <img src="./main_static/images/logos/drawedumath_logo.png" style="width:2em;vertical-align: middle" alt="Logo"/>
+              <img src="./main_static/images/logos/drawedumath_logo.png" style="width:2em;vertical-align: middle"
+                alt="Logo" />
               <span class="drawedumath" style="vertical-align: middle">DrawEduMath</span>
-              </h1>
+            </h1>
             <h2 class="subtitle is-3 publication-subtitle" style="margin-bottom: 32px;">
               Evaluating Vision Language Models with Expert-Annotated Students’ Hand-Drawn Math Images
             </h2>
@@ -128,7 +130,8 @@
               <span class="author-block">
                 <a href="https://lucy3.github.io/">Lucy Li*</a><sup style="color:#6fbf73;">2</sup>,</span>
               <span class="author-block">
-                <a href="https://www.linkedin.com/in/ryangknight/">Ryan Knight</a><sup style="color:#339cff;">3</sup>,</span>
+                <a href="https://www.linkedin.com/in/ryangknight/">Ryan Knight</a><sup
+                  style="color:#339cff;">3</sup>,</span>
               <span class="author-block">
                 <a href="https://www.teachinglab.org/alice-ng">Alice Ng</a><sup style="color:#ffac33;">4</sup>,</span>
               <span class="author-block">
@@ -138,60 +141,60 @@
               <span class="author-block">
                 <a href="https://kyleclo.com/">Kyle Lo</a><sup style="color:#d84dda;">5</sup></span>
             </div>
-  
+
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup style="color:#ed4b82">1</sup>Worcester Polytechnic Institute,</span>
-              <span class="author-block"><sup style="color:#6fbf73;">2</sup>University of California, Berkeley,</span><br>
+              <span class="author-block"><sup style="color:#6fbf73;">2</sup>University of California,
+                Berkeley,</span><br>
               <span class="author-block"><sup style="color:#339cff">3</sup>Insource Services Inc,</span>
               <span class="author-block"><sup style="color:#ffac33">4</sup>Teaching Lab,</span>
               <span class="author-block"><sup style="color:#d84dda">5</sup>Allen Institute for AI</span><br>
               <span class="paper-block"><b style="color:#f41c1c">NeurIps 2024, Math AI Workshop</b></span>
             </div>
-  
+
             <div class="column has-text-centered" style="margin-top: 32px;">
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
                   <!-- @PAN TODO: change links -->
                   <!-- TODO: Add paper link -->
-                  <a href="" 
-                     class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://openreview.net/attachment?id=0vQYvcinij&name=pdf"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
+                      <i class="fas fa-file-pdf"></i>
                     </span>
                     <span>Paper</span>
                   </a>
                 </span>
-                <span class="link-block">
-                  <!-- TODO: Add arXiv link -->
-                  <a href=""  
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                        <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
+                <!-- <span class="link-block"> -->
+                <!-- TODO: Add arXiv link -->
+                <!-- <a href="" class="external-link button is-normal is-rounded is-dark"> -->
+                <!-- <span class="icon"> -->
+                <!-- <i class="ai ai-arxiv"></i> -->
+                <!-- </span> -->
+                <!-- <span>arXiv</span> -->
+                <!-- </a> -->
+                <!-- </span> -->
                 <!-- Code Link. -->
                 <span class="link-block">
                   <!-- TODO: Add github code link -->
                   <a href="https://github.com/allenai/drawedumath"
-                     class="external-link button is-normal is-rounded is-dark">
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                        <i class="fab fa-github"></i>
+                      <i class="fab fa-github"></i>
                     </span>
                     <span>Code</span>
-                    </a>
+                  </a>
                 </span>
                 <!-- Dataset Link. -->
                 <span class="link-block">
                   <!-- TODO: Add huggingface data link --></a>
-                  <a href="https://huggingface.co/datasets/Heffernan-WPI-Lab/DrawEduMath"  
-                     class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://huggingface.co/datasets/Heffernan-WPI-Lab/DrawEduMath"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                        <!-- <i class="far fa-images"></i> -->
-                        <p style="font-size:18px">🤗</p>
-                        <!-- 🔗 -->
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
                     </span>
                     <span>Dataset</span>
                   </a>
@@ -209,9 +212,9 @@
                 <!-- Leaderboard Link. -->
                 <span class="link-block">
                   <a href="https://drawedumath.github.io/#leaderboard"
-                     class="external-link button is-normal is-rounded is-dark">
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                        <p style="font-size:18px">🏆</p>
+                      <p style="font-size:18px">🏆</p>
                     </span>
                     <span>Leaderboard</span>
                   </a>
@@ -227,7 +230,7 @@
                   </a>
                 </span> -->
               </div>
-  
+
             </div>
           </div>
         </div>
@@ -236,8 +239,8 @@
   </section>
 
 
-<!-- Main Visualization -->
-<!-- <section class="section">
+  <!-- Main Visualization -->
+  <!-- <section class="section">
   <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
@@ -270,140 +273,164 @@
     </div>
 </section> -->
 
-<!-- Introduction -->
-<section class="section">
-  <div class="container" style="margin-bottom: 2vh;">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+  <!-- Introduction -->
+  <section class="section">
+    <div class="container" style="margin-bottom: 2vh;">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
 
-        <img src="main_static/images/DatasetExample.png" alt="DrawEduMath dataset creation" width="84%"/>
-        <p class="has-text-grey mb-6"><img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle;" alt="Logo"/>
-          DrawEduMath is a dataset of images of student's handwritten responses to math problems, each with a teacher's description.
-          Each image in our dataset is a concatenation of a math problem on the left with a student response on the right. Teachers describe the student's response to the problem, and then a model, such as GPT-4o shown here, writes QA pairs extracted from facets of the description.
-        </p>
-        <h2 class="title is-2" style="margin-top: 128px;">Introduction</h2>
+          <img src="main_static/images/DatasetExample.png" alt="DrawEduMath dataset creation" width="84%" />
+          <p class="has-text-grey mb-6"><img src="main_static/images/logos/drawedumath_logo.png"
+              style="width:2.0em;vertical-align: middle;" alt="Logo" />
+            DrawEduMath is a dataset of images of student's handwritten responses to math problems, each with a
+            teacher's description.
+            Each image in our dataset is a concatenation of a math problem on the left with a student response on the
+            right. Teachers describe the student's response to the problem, and then a model, such as GPT-4o shown here,
+            writes QA pairs extracted from facets of the description.
+          </p>
+          <h2 class="title is-2" style="margin-top: 128px;">Introduction</h2>
 
-        <div class="content has-text-left is-size-5" style="margin-top: 32px;">
+          <div class="content has-text-left is-size-5" style="margin-top: 32px;">
             <p>
-                In real-world settings, vision language models (VLMs) should robustly handle naturalistic, noisy visual content as well as domain-specific language and concepts.  
-                For example, K-12 educators using digital learning platforms may need to examine and provide feedback across many images of students' math work. 
-                To assess the potential of VLMs to support educators in settings like this one, we introduce <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/> DrawEduMath, 
-                an English-language dataset of 2030 images of students' handwritten responses to K-12 math problems. 
+              In real-world settings, vision language models (VLMs) should robustly handle naturalistic, noisy visual
+              content as well as domain-specific language and concepts.
+              For example, K-12 educators using digital learning platforms may need to examine and provide feedback
+              across many images of students' math work.
+              To assess the potential of VLMs to support educators in settings like this one, we introduce <img
+                src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle"
+                alt="Logo" /> DrawEduMath,
+              an English-language dataset of 2030 images of students' handwritten responses to K-12 math problems.
             </p>
-                
+
             <p>
-                Teachers provided detailed annotations, including free-form descriptions of each image and 11,661 question-answer (QA) pairs. 
-                These annotations capture a wealth of pedagogical insights, ranging from students' problem-solving strategies to the composition of their drawings, diagrams, and writing. We evaluate VLMs on teachers' QA pairs, 
-                as well as 4,362  synthetic QA pairs derived from teachers' descriptions using language models (LMs).  
-                We show that even state-of-the-art VLMs leave much room for improvement on <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/> DrawEduMath questions.  
-                We also find that synthetic QAs, though imperfect, can yield similar model rankings as teacher-written QAs. 
-                
-                We release <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>DrawEduMath to support the evaluation of VLMs' abilities to reason mathematically over images gathered with educational contexts in mind.
+              Teachers provided detailed annotations, including free-form descriptions of each image and 11,661
+              question-answer (QA) pairs.
+              These annotations capture a wealth of pedagogical insights, ranging from students' problem-solving
+              strategies to the composition of their drawings, diagrams, and writing. We evaluate VLMs on teachers' QA
+              pairs,
+              as well as 4,362 synthetic QA pairs derived from teachers' descriptions using language models (LMs).
+              We show that even state-of-the-art VLMs leave much room for improvement on <img
+                src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle"
+                alt="Logo" /> DrawEduMath questions.
+              We also find that synthetic QAs, though imperfect, can yield similar model rankings as teacher-written
+              QAs.
+
+              We release <img src="main_static/images/logos/drawedumath_logo.png"
+                style="width:2.0em;vertical-align: middle" alt="Logo" />DrawEduMath to support the evaluation of VLMs'
+              abilities to reason mathematically over images gathered with educational contexts in mind.
             </p>
+          </div>
         </div>
       </div>
+      <!--/ Abstract. -->
     </div>
-    <!--/ Abstract. -->
-</div>
-</section>
+  </section>
 
-<!-- Leaderboard -->
-<section class="section">
-  <div class="container">
-    
-    <div class="columns is-centered">
-      <div class="column is-full has-text-centered content">
+  <!-- Leaderboard -->
+  <section class="section">
+    <div class="container">
 
-        <h2 class="title is-2" id="leaderboard_test">Leaderboard on DrawEduMath</h2>
-        <div class="content">
-          <p class="mt-3"> Accuracy Scores on the 
-            <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
-            <span class="drawedumath">DrawEduMath</span> dataset.
-          </p>
-          <table class="js-sort-table" id="results">
-            <tr>
+      <div class="columns is-centered">
+        <div class="column is-full has-text-centered content">
+
+          <h2 class="title is-2" id="leaderboard_test">Leaderboard on DrawEduMath</h2>
+          <div class="content">
+            <p class="mt-3"> Accuracy Scores on the
+              <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle"
+                alt="Logo" />
+              <span class="drawedumath">DrawEduMath</span> dataset.
+            </p>
+            <table class="js-sort-table" id="results">
+              <tr>
                 <td class="js-sort-number"><strong>#</strong></td>
                 <td class="js-sort-number"><strong>Model</strong></td>
                 <td class="js-sort-number"><strong>Date</strong></td>
                 <td class="js-sort-number"><strong>Synthetic QA</strong></td>
                 <td class="js-sort-number"><strong>Teacher QA</strong></td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td class="js-sort-number"><strong>1</strong></td>
                 <td class="js-sort-number"><strong>GPT-4o</strong></td>
                 <td class="js-sort-number"><strong>2024-10-15</strong></td>
                 <td class="js-sort-number"><strong>0.722</strong></td>
                 <td class="js-sort-number"><strong>0.628</strong></td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td class="js-sort-number"><strong>2</strong></td>
                 <td class="js-sort-number"><strong>Claude 3.5 Sonnet</strong></td>
                 <td class="js-sort-number"><strong>2024-10-15</strong></td>
                 <td class="js-sort-number"><strong>0.715</strong></td>
                 <td class="js-sort-number"><strong>0.657</strong></td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td class="js-sort-number"><strong>3</strong></td>
                 <td class="js-sort-number"><strong>Gemini 1.5 Pro</strong></td>
                 <td class="js-sort-number"><strong>2024-10-11</strong></td>
                 <td class="js-sort-number"><strong>0.646</strong></td>
                 <td class="js-sort-number"><strong>0.490</strong></td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td class="js-sort-number"><strong>4</strong></td>
                 <td class="js-sort-number"><strong>Llama 3.2-11B V</strong></td>
                 <td class="js-sort-number"><strong>2024-10-15</strong></td>
                 <td class="js-sort-number"><strong>0.388</strong></td>
                 <td class="js-sort-number"><strong>0.296</strong></td>
-            </tr>
-        </table>
-          
+              </tr>
+            </table>
 
-          
-          <div>
-          <p>The leaderboard scores are based on the judgements using <b>Mixtral 8x22B model</b>.</p>
-          <p>🚨 To submit your results to the leaderboard, please send to <a href="mailto:sbaral@wpi.edu">this email</a> with your result json files.</p>
-          </p>
+
+
+            <div>
+              <p>The leaderboard scores are based on the judgements using <b>Mixtral 8x22B model</b>.</p>
+              <p>🚨 To submit your results to the leaderboard, please send to <a href="mailto:sbaral@wpi.edu">this
+                  email</a> with your result json files.</p>
+              </p>
+            </div>
           </div>
+
         </div>
-
       </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- DATASET SECTION -->
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 drawedumath">
+        <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle"
+          alt="Logo" />
+        <span class="drawedumath" style="vertical-align: middle">DrawEduMath Dataset</span>
+      </h1>
+    </div>
+  </section>
 
-<!-- DATASET SECTION -->
-<section class="hero is-light is-small">
-  <div class="hero-body has-text-centered">
-  <h1 class="title is-1 drawedumath">
-    <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
-    <span class="drawedumath" style="vertical-align: middle">DrawEduMath Dataset</span>
-  </h1>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered has-text-centered">
-      <!-- <div class="column is-full-width has-text-centered"> -->
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <!-- <div class="column is-full-width has-text-centered"> -->
         <div class="column is-four-fifths">
-        <h2 class="title is-2">Overview</h2>
-        <div class="content has-text-justified">
-          <p>
-            <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
-            <span class="drawedumath">DrawEduMath</span>  consists of 2,030 images of U.S.based students’ handwritten math responses to
-            188 math problems spanning Grade 2 through high school. 
-            
-            These images were initially collected on the <a href="https://new.assistments.org/" target="_blank"><img src="main_static/images/logos/assistments_a_logo.png" style="width:1.5em;vertical-align: middle" alt="Logo"/>ASSISTments</a> 
-            online learning platform, where students receive feedback from teachers on assigned work. 
-            The problems that accompany each student response are drawn from three overlapping1 open educational resources (OER): Eureka Math, Open Up
-            Resources, and Illustrative Math. 
-            
-          </p>
+          <h2 class="title is-2">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle"
+                alt="Logo" />
+              <span class="drawedumath">DrawEduMath</span> consists of 2,030 images of U.S.based students’ handwritten
+              math responses to
+              188 math problems spanning Grade 2 through high school.
 
-          <!-- <div id="results-carousel" class="carousel results-carousel">
+              These images were initially collected on the <a href="https://new.assistments.org/" target="_blank"><img
+                  src="main_static/images/logos/assistments_a_logo.png" style="width:1.5em;vertical-align: middle"
+                  alt="Logo" />ASSISTments</a>
+              online learning platform, where students receive feedback from teachers on assigned work.
+              The problems that accompany each student response are drawn from three overlapping1 open educational
+              resources (OER): Eureka Math, Open Up
+              Resources, and Illustrative Math.
+
+            </p>
+
+            <!-- <div id="results-carousel" class="carousel results-carousel">
             <div class="box m-5">
               <div class="content has-text-centered">
                 <img src="main_static/images/DatasetExample.png" alt="DrawEduMath dataset creation" width="80%"/>
@@ -422,154 +449,164 @@
           </div> -->
 
 
-          <p>
-            You can download the dataset on <a href="https://huggingface.co/datasets/Heffernan-WPI-Lab/DrawEduMath" target="_blank">Hugging Face Dataset</a>.
-          </p>
-
-        </div>
-      </div>
-    </div>
-    <div class="columns is-centered">
-      <div class="column" style="margin-right: -20rem;">
-        <div class="content has-text-centered">
-          <img src="main_static/images/plots/key_statistics.png" alt="data-overview" style="max-width: 50%;"/>
-          <p> 
-            Key data statistics pertaining to students' math images <br/> 
-            included in <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
-            <span class="drawedumath">DrawEduMath</span>.<br/>
-          </p> 
-        </div>
-      </div>
-      <div class="column">
-        <div class="content has-text-centered">
-          <img src="main_static/images/plots/annotation_statistics.png" alt="data-composition" style="max-width: 45%;"/>
-          <p>
-            Key data statistics pertaining to the collection of <br/>
-            teachers’ language for <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
-            <span class="drawedumath">DrawEduMath</span>. Word counts <br/>
-            and text lengths are determined using white-space delineated tokens. 
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered m-6">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">Examples</h2>
-            <p>Examples of teacher’s answers to a question asking about possible errors in students’ responses to math
-              problems. All three examples of students’ hand-drawn responses are for the same math problem asking students to
-              draw and shade units on fraction strips to show 4 thirds, shown on the left.
+            <p>
+              You can download the dataset on <a href="https://huggingface.co/datasets/Heffernan-WPI-Lab/DrawEduMath"
+                target="_blank">Hugging Face Dataset</a>.
             </p>
-            <img src="main_static/images/TeacherQA.png" alt="Example of teachers' answers to question about erro" width="75%"/>
 
-        
-      </div>
-    </div>
-
-    <div class="columns is-centered m-6">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">Statistics</h2>
-            <img src="main_static/images/plots/question_type_statistics.png" alt="Overall question types in our VQA benchmark" width="70%"/>
-            <p>The most common question types in our <img src="main_static/images/logos/drawedumath_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
-              <span class="drawedumath">DrawEduMath</span> benchmark, along with examples of questions
-              categorized within each type. <br/>
-              The percentages shown are the proportion of questions across all images within each
-              QA-writing (Claude-generated, GPT-4o-generated, <br/> or teacher-written) workflow.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- RESULTS SECTION -->
-<section class="hero is-light is-small">
-  <div class="hero-body has-text-centered">
-    <h1 class="title is-1 mathvista">Experiment Results</h1>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-
-    <div class="columns is-centered m-6">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">Results on Existing Vision Language Models</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="main_static/images/plots/vlm_performance_bar.png" alt="grade-lv" width="70%"/>
-              <!-- <p>Write the label for bar chart results</p> -->
-            </div>
           </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="main_static/images/plots/question_types_radar.png" alt="grade-lv" width="50%"/>
-              <!-- <p>Write the label for the question radar chart</p> -->
-            </div>
-          </div>
-          
         </div>
       </div>
-    </div>
+      <div class="columns is-centered">
+        <div class="column" style="margin-right: -20rem;">
+          <div class="content has-text-centered">
+            <img src="main_static/images/plots/key_statistics.png" alt="data-overview" style="max-width: 50%;" />
+            <p>
+              Key data statistics pertaining to students' math images <br />
+              included in <img src="main_static/images/logos/drawedumath_logo.png"
+                style="width:2.0em;vertical-align: middle" alt="Logo" />
+              <span class="drawedumath">DrawEduMath</span>.<br />
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content has-text-centered">
+            <img src="main_static/images/plots/annotation_statistics.png" alt="data-composition"
+              style="max-width: 45%;" />
+            <p>
+              Key data statistics pertaining to the collection of <br />
+              teachers’ language for <img src="main_static/images/logos/drawedumath_logo.png"
+                style="width:2.0em;vertical-align: middle" alt="Logo" />
+              <span class="drawedumath">DrawEduMath</span>. Word counts <br />
+              and text lengths are determined using white-space delineated tokens.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+          <h2 class="title is-3">Examples</h2>
+          <p>Examples of teacher’s answers to a question asking about possible errors in students’ responses to math
+            problems. All three examples of students’ hand-drawn responses are for the same math problem asking students
+            to
+            draw and shade units on fraction strips to show 4 thirds, shown on the left.
+          </p>
+          <img src="main_static/images/TeacherQA.png" alt="Example of teachers' answers to question about erro"
+            width="75%" />
+
+
+        </div>
+      </div>
+
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+          <h2 class="title is-3">Statistics</h2>
+          <img src="main_static/images/plots/question_type_statistics.png"
+            alt="Overall question types in our VQA benchmark" width="70%" />
+          <p>The most common question types in our <img src="main_static/images/logos/drawedumath_logo.png"
+              style="width:2.0em;vertical-align: middle" alt="Logo" />
+            <span class="drawedumath">DrawEduMath</span> benchmark, along with examples of questions
+            categorized within each type. <br />
+            The percentages shown are the proportion of questions across all images within each
+            QA-writing (Claude-generated, GPT-4o-generated, <br /> or teacher-written) workflow.
+          </p>
+        </div>
+      </div>
 
     </div>
-    </section>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mathvista">Experiment Results</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+          <h2 class="title is-3">Results on Existing Vision Language Models</h2>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="main_static/images/plots/vlm_performance_bar.png" alt="grade-lv" width="70%" />
+                <!-- <p>Write the label for bar chart results</p> -->
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="main_static/images/plots/question_types_radar.png" alt="grade-lv" width="50%" />
+                <!-- <p>Write the label for the question radar chart</p> -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 
 
 
 
-<!-- @PAN TODO: bibtex -->
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title is-3 has-text-centered">BibTeX</h2>
-    <pre><code>@inproceedings{baral2024drawedumath,
+  <!-- @PAN TODO: bibtex -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3 has-text-centered">BibTeX</h2>
+      <pre><code>@inproceedings{baral2024drawedumath,
   author    = {Baral, Sami and Li, Lucy and Knight, Ryan and Ng, Alice and Soldainin, Luca and Heffernan, Neil and Lo, Kyle},
   title     = {DrawEduMath: Evaluating Vision Language Models with Expert-Annotated Students’ Hand-Drawn Math Images},
   booktitle = {The 4th Workshop on Mathematical Reasoning and AI at NeurIPS'24},
   year      = {2024}
 }</code></pre>
-  </div>
-</section>
+    </div>
+  </section>
 
-<section>
-  <div class="section" id="org-banners" style="display:flex">
-    <a href="https://www.wpi.edu/" target="_blank" rel="external">
+  <section>
+    <div class="section" id="org-banners" style="display:flex">
+      <a href="https://www.wpi.edu/" target="_blank" rel="external">
         <img class="center-block org-banner" src="main_static/images/logos/WPI_logo.png">
-    </a>
-    <a href="" target="blank" class="ext-link">
+      </a>
+      <a href="" target="blank" class="ext-link">
         <img class="center-block org-banner" src="main_static/images/logos/uc_berkeley_logo.png">
-    </a>
-    <a href="" target="blank" class="ext-link">
-      <img class="center-block org-banner" style="height:4em" src="main_static/images/logos/insource_logo.png">
-    </a>
-    <a href="" target="_blank" class="ext-link" rel="external">
+      </a>
+      <a href="" target="blank" class="ext-link">
+        <img class="center-block org-banner" style="height:4em" src="main_static/images/logos/insource_logo.png">
+      </a>
+      <a href="" target="_blank" class="ext-link" rel="external">
         <img class="center-block org-banner" style="height:8em" src="main_static/images/logos/teaching_lab_logo.png">
-    </a>
-    <a href="" target="_blank" class="ext-link" rel="external">
+      </a>
+      <a href="" target="_blank" class="ext-link" rel="external">
         <img class="center-block org-banner" style="height:8em" src="main_static/images/logos/ai2_logo.png">
-    </a>
-  </div>
-</section>
+      </a>
+    </div>
+  </section>
 
 
-<footer class="footer">
-  <!-- <div class="container"> -->
+  <footer class="footer">
+    <!-- <div class="container"> -->
     <div class="content has-text-centered">
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a>, licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a>, licensed under a <a
+              rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
         </div>
       </div>
     </div>
-  <!-- </div> -->
-</footer>
+    <!-- </div> -->
+  </footer>
 
 </body>
+
 </html>
