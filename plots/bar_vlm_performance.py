@@ -10,7 +10,6 @@ from textwrap import wrap
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 
 # Create DataFrame from the data
 metrics = [
