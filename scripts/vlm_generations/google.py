@@ -18,11 +18,10 @@ from PIL import Image
 
 
 class GoogleAIImageToText:
-    def __init__(self):
+    def __init__(self, model):
         config = dotenv_values("../.env")
         api_key = config.get("GEMINI_API_KEY")
-        # self.model = "gemini-1.5-flash"
-        self.model = "gemini-1.5-pro"
+        self.model = model
 
         genai.configure(api_key=api_key)
         self.client = genai.GenerativeModel(self.model)
@@ -47,6 +46,6 @@ if __name__ == "__main__":
     viewing the image. Focus on describing the student’s answers in the image. Your response should be a paragraph without bullet points.
     """
 
-    anthropic_api = GoogleAIImageToText()
+    anthropic_api = GoogleAIImageToText("gemini-1.5-pro")
     response = anthropic_api.get_response(image_path, prompt)
     print(response)

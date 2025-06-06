@@ -17,11 +17,12 @@ from openai import OpenAI
 
 
 class OpenAIImageToText:
-    def __init__(self):
+    def __init__(self, model):
         config = dotenv_values("../.env")
         api_key = config.get("OPENAI_API_KEY")
 
         self.client = OpenAI(api_key=api_key)
+        self.model = model
 
     def encode_image(self, image_path):
         """Encode the image in base64 format."""
@@ -35,7 +36,7 @@ class OpenAIImageToText:
         encoded_image = self.encode_image(image_path)
 
         response = self.client.chat.completions.create(
-            model="gpt-4o",  # Use the appropriate model supporting image input
+            model=self.model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {
@@ -65,6 +66,6 @@ if __name__ == "__main__":
     viewing the image. Focus on describing the student’s answers in the image. Your response should be a paragraph without bullet points.
     """
 
-    openai_api = OpenAIImageToText()
+    openai_api = OpenAIImageToText("gpt-4o")
     response = openai_api.get_response(image_path, prompt)
     print(response)
