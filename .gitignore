@@ -49,3 +49,10 @@ __pycache__
 
 docs/build
 site/
+
+
+# pipeline artifacts
+
+output/*.csv
+logs/
+data/AllImages/
