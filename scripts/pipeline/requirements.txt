@@ -1,0 +1,27 @@
+# Core API Clients
+anthropic>=0.42.0
+openai>=1.58.1
+google-generativeai>=0.8.3
+together
+
+# Image Processing
+Pillow>=10.0.0
+
+# Environment Management
+python-dotenv>=1.0.0
+
+# Evaluation Metrics
+bert-score>=0.3.13
+rouge-score>=0.1.2
+evaluate>=0.4.0
+scipy>=1.10.0
+
+# Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# HTTP Requests
+requests>=2.31.0
+
+# Progress Tracking
+tqdm>=4.66.0
