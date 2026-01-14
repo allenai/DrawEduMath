@@ -18,10 +18,10 @@ from PIL import Image
 
 
 class AnthropicImageToText:
-    def __init__(self):
+    def __init__(self, model):
         config = dotenv_values("../.env")
         api_key = config.get("ANTHROPIC_API_KEY")
-        self.model = "claude-3-5-sonnet-20240620"
+        self.model = model
 
         self.client = anthropic.Anthropic(api_key=api_key)
 
@@ -77,6 +77,6 @@ if __name__ == "__main__":
     viewing the image. Focus on describing the student’s answers in the image. Your response should be a paragraph without bullet points.
     """
 
-    anthropic_api = AnthropicImageToText()
+    anthropic_api = AnthropicImageToText("claude-3-5-sonnet-20240620")
     response = anthropic_api.get_response(image_path, prompt)
     print(response)
