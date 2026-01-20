@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontier VLM Teacher QA Performance</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            background-color: white;
+        }
+
+        #chart {
+            background-color: white;
+        }
+
+        .line {
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .dot {
+            cursor: pointer;
+            transition: r 0.2s;
+        }
+
+        .dot:hover {
+            r: 6;
+        }
+
+        .grid line {
+            stroke: #E0E0E0;
+            stroke-width: 0.5;
+            shape-rendering: crispEdges;
+        }
+
+        .grid path {
+            stroke-width: 0;
+        }
+
+        .axis line,
+        .axis path {
+            stroke: black;
+            stroke-width: 0.8;
+            shape-rendering: crispEdges;
+        }
+
+        .axis text {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .axis-label {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .legend {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .legend.inactive {
+            opacity: 0.3;
+        }
+
+        .tooltip {
+            position: absolute;
+            padding: 8px 12px;
+            border-radius: 4px;
+            pointer-events: none;
+            color: white;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        // =============================================================================
+        // CONFIGURATION
+        // =============================================================================
+
+        const CONFIG = {
+            margin: {top: 40, right: 40, bottom: 60, left: 60},
+            width: 1000,
+            height: 500,
+            colors: {
+                'Google': '#34A853',
+                'OpenAI': '#00A4BD',
+                'Anthropic': '#D4735E',
+                'Meta': '#7B68EE'
+            },
+            yDomain: [0.3, 1.0],
+            dotRadius: 5,
+            dotHoverRadius: 6
+        };
+
+        // =============================================================================
+        // DATA
+        // =============================================================================
+
+        const modelData = [
+            {model: "Gemini 3 Pro Preview", score: 0.713, provider: "Google", date: "2025-11-18"},
+            {model: "Gemini 2.5 Pro Preview", score: 0.660, provider: "Google", date: "2025-03-25"},
+            {model: "GPT 5", score: 0.640, provider: "OpenAI", date: "2025-08-07"},
+            {model: "Gemini 2.5 Pro", score: 0.635, provider: "Google", date: "2025-06-17"},
+            {model: "GPT 4.5 Preview", score: 0.592, provider: "OpenAI", date: "2025-02-27"},
+            {model: "GPT 4.1", score: 0.581, provider: "OpenAI", date: "2025-04-14"},
+            {model: "Claude Opus 4.5", score: 0.578, provider: "Anthropic", date: "2025-11-24"},
+            {model: "GPT o4-mini", score: 0.572, provider: "OpenAI", date: "2025-04-16"},
+            {model: "GPT 5.2", score: 0.564, provider: "OpenAI", date: "2025-12-11"},
+            {model: "Gemini Flash 2.0", score: 0.545, provider: "Google", date: "2025-02-05"},
+            {model: "Claude 3.7 Sonnet", score: 0.517, provider: "Anthropic", date: "2025-02-19"},
+            {model: "Claude Sonnet 4", score: 0.476, provider: "Anthropic", date: "2025-05-14"},
+            {model: "Claude Sonnet 4.5", score: 0.473, provider: "Anthropic", date: "2025-09-29"},
+            {model: "Llama 4 Scout", score: 0.445, provider: "Meta", date: "2025-04-05"}
+        ];
+
+        // =============================================================================
+        // DATA PREPROCESSING
+        // =============================================================================
+
+        // Parse dates
+        const parseDate = d3.timeParse("%Y-%m-%d");
+        modelData.forEach(d => {
+            d.date = parseDate(d.date);
+        });
+
+        // Group by provider and sort by date
+        const providerData = d3.group(modelData, d => d.provider);
+        providerData.forEach((values, key) => {
+            values.sort((a, b) => a.date - b.date);
+        });
+
+        // =============================================================================
+        // SVG SETUP
+        // =============================================================================
+
+        const chartWidth = CONFIG.width - CONFIG.margin.left - CONFIG.margin.right;
+        const chartHeight = CONFIG.height - CONFIG.margin.top - CONFIG.margin.bottom;
+
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", CONFIG.width)
+            .attr("height", CONFIG.height)
+            .append("g")
+            .attr("transform", `translate(${CONFIG.margin.left},${CONFIG.margin.top})`);
+
+        // =============================================================================
+        // SCALES
+        // =============================================================================
+
+        const xScale = d3.scaleTime()
+            .domain(d3.extent(modelData, d => d.date))
+            .range([0, chartWidth]);
+
+        const yScale = d3.scaleLinear()
+            .domain(CONFIG.yDomain)
+            .range([chartHeight, 0]);
+
+        // =============================================================================
+        // GRID
+        // =============================================================================
+
+        svg.append("g")
+            .attr("class", "grid")
+            .attr("transform", `translate(0,${chartHeight})`)
+            .call(d3.axisBottom(xScale)
+                .tickSize(-chartHeight)
+                .tickFormat(""));
+
+        svg.append("g")
+            .attr("class", "grid")
+            .call(d3.axisLeft(yScale)
+                .tickSize(-chartWidth)
+                .tickFormat(""));
+
+        // =============================================================================
+        // AXES
+        // =============================================================================
+
+        svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", `translate(0,${chartHeight})`)
+            .call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b '%y")));
+
+        svg.append("g")
+            .attr("class", "axis")
+            .call(d3.axisLeft(yScale).ticks(7));
+
+        // Axis labels
+        svg.append("text")
+            .attr("class", "axis-label")
+            .attr("text-anchor", "middle")
+            .attr("x", chartWidth / 2)
+            .attr("y", chartHeight + 45)
+            .text("Model Release Date");
+
+        svg.append("text")
+            .attr("class", "axis-label")
+            .attr("text-anchor", "middle")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -chartHeight / 2)
+            .attr("y", -45)
+            .text("Teacher QA Accuracy");
+
+        // =============================================================================
+        // HELPER FUNCTIONS
+        // =============================================================================
+
+        /**
+         * Generates an SVG path for a step function (horizontal then vertical)
+         * @param {Array} points - Array of [x, y] coordinate pairs
+         * @returns {string} SVG path string
+         */
+        function generateStepPath(points) {
+            let path = "";
+            for (let i = 0; i < points.length; i++) {
+                const [x1, y1] = points[i];
+                if (i === 0) {
+                    path += `M ${x1},${y1}`;
+                } else {
+                    path += ` H ${x1} V ${y1}`;
+                }
+            }
+            return path;
+        }
+
+        /**
+         * Creates a sanitized CSS class name from provider name
+         * @param {string} provider - Provider name
+         * @returns {string} Sanitized class name
+         */
+        function getProviderClass(provider) {
+            return `provider-${provider.replace(/\s+/g, '-')}`;
+        }
+
+        // =============================================================================
+        // VISUALIZATION - LINES AND DOTS
+        // =============================================================================
+
+        const activeProviders = new Set(Array.from(providerData.keys()));
+
+        providerData.forEach((values, provider) => {
+            const providerClass = getProviderClass(provider);
+            const group = svg.append("g")
+                .attr("class", `provider-group ${providerClass}`);
+
+            // Draw step function line (only if multiple data points)
+            if (values.length > 1) {
+                const points = values.map(d => [xScale(d.date), yScale(d.score)]);
+                group.append("path")
+                    .attr("class", "line")
+                    .attr("d", generateStepPath(points))
+                    .attr("stroke", CONFIG.colors[provider]);
+            }
+
+            // Draw data point markers
+            group.selectAll(".dot")
+                .data(values)
+                .enter()
+                .append("circle")
+                .attr("class", "dot")
+                .attr("cx", d => xScale(d.date))
+                .attr("cy", d => yScale(d.score))
+                .attr("r", CONFIG.dotRadius)
+                .attr("fill", CONFIG.colors[provider]);
+        });
+
+        // =============================================================================
+        // TOOLTIP
+        // =============================================================================
+
+        const tooltip = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip");
+
+        svg.selectAll(".dot")
+            .on("mouseover", function(event, d) {
+                tooltip
+                    .style("background-color", CONFIG.colors[d.provider])
+                    .style("opacity", 1)
+                    .html(`<b>${d.model}</b><br>Score: ${d.score.toFixed(3)}<br>Date: ${d3.timeFormat("%b %d, %Y")(d.date)}`);
+            })
+            .on("mousemove", function(event) {
+                tooltip
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 10) + "px");
+            })
+            .on("mouseout", function() {
+                tooltip.style("opacity", 0);
+            });
+
+        // =============================================================================
+        // LEGEND
+        // =============================================================================
+
+        const legend = svg.append("g")
+            .attr("class", "legend-group")
+            .attr("transform", `translate(0, -30)`);
+
+        let legendX = 0;
+        Array.from(providerData.keys()).forEach((provider) => {
+            const legendItem = legend.append("g")
+                .attr("class", `legend legend-${provider.replace(/\s+/g, '-')}`)
+                .attr("transform", `translate(${legendX}, 0)`)
+                .style("cursor", "pointer")
+                .on("click", function() {
+                    // Toggle provider visibility
+                    const providerClass = getProviderClass(provider);
+                    if (activeProviders.has(provider)) {
+                        activeProviders.delete(provider);
+                        d3.select(this).classed("inactive", true);
+                        svg.select(`.${providerClass}`).style("opacity", 0);
+                    } else {
+                        activeProviders.add(provider);
+                        d3.select(this).classed("inactive", false);
+                        svg.select(`.${providerClass}`).style("opacity", 1);
+                    }
+                });
+
+            // Legend marker
+            legendItem.append("circle")
+                .attr("cx", 6)
+                .attr("cy", -3)
+                .attr("r", 5)
+                .attr("fill", CONFIG.colors[provider]);
+
+            // Legend text
+            legendItem.append("text")
+                .attr("x", 18)
+                .attr("y", 0)
+                .text(provider);
+
+            // Calculate position for next legend item
+            const bbox = legendItem.node().getBBox();
+            legendX += bbox.width + 25;
+        });
+    </script>
+</body>
+</html>
